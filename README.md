@@ -13,9 +13,8 @@ Production-grade Spring Boot 2.7.x backend for a retail rewards program, designe
 - Swagger/OpenAPI
 - Lombok
 - Groovy + Spock
-- Testcontainers
 
-Spring Boot 2.7.x is used because it requires Java 17 and remains compatible with the requested Java version. springdoc-openapi 1.x is used because it supports Spring Boot 2.x. JJWT is used for JWT creation and validation. Spock and Testcontainers are used for readable tests and containerized PostgreSQL integration tests.
+Spring Boot 2.7.x is used because it requires Java 17 and remains compatible with the requested Java version. springdoc-openapi 1.x is used because it supports Spring Boot 2.x. JJWT is used for JWT creation and validation. Spock are used for readable tests and containerized PostgreSQL integration tests.
 
 ## Architecture
 
@@ -98,7 +97,6 @@ Authenticated:
 - Java 17
 - Maven 3.5+
 - PostgreSQL 9.5+
-- Docker for Testcontainers-based tests
 
 ### Run locally
 
