@@ -1,0 +1,104 @@
+{
+  "info": {
+    "name": "Retail Rewards API",
+    "_postman_id": "0d0b0f06-7f3f-4e95-9d44-2c4ae8f5e111",
+    "description": "Collection for authentication, customer management, transactions, and rewards reporting.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": "{{baseUrl}}/auth/register",
+            "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Alice\",\n  \"lastName\": \"Walker\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"Password@123\",\n  \"phone\": \"9999999999\"\n}"}
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": "{{baseUrl}}/auth/login",
+            "body": {"mode": "raw", "raw": "{\n  \"email\": \"alice@example.com\",\n  \"password\": \"Password@123\"\n}"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "List Customers",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/customers?page=0&size=20&sort=createdAt,desc"
+          }
+        },
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "url": "{{baseUrl}}/customers",
+            "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Bob\",\n  \"lastName\": \"Martin\",\n  \"email\": \"bob@example.com\",\n  \"phone\": \"7777777777\"\n}"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "List Transactions",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/transactions?page=0&size=20&sort=transactionDate,desc"
+          }
+        },
+        {
+          "name": "Create Transaction",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "url": "{{baseUrl}}/transactions",
+            "body": {"mode": "raw", "raw": "{\n  \"customerId\": 1,\n  \"amount\": 120.00,\n  \"transactionDate\": \"2026-05-01T10:15:30\",\n  \"description\": \"Electronics purchase\"\n}"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rewards",
+      "item": [
+        {
+          "name": "Total Rewards",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/rewards/1?from=2026-01-01&to=2026-05-31"
+          }
+        },
+        {
+          "name": "Monthly Rewards",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/rewards/1/monthly?from=2026-01-01&to=2026-05-31"
+          }
+        }
+      ]
+    }
+  ]
+}

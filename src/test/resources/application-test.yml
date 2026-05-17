@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+security:
+  jwt:
+    secret: Q2hhbmdlTWVOb3dBbWJpZW50S2V5Q2hhbmdlTWVOb3dBbWJpZW50S2V5MTIzNDU2Nzg5MA==
+    expiration-in-seconds: 86400
